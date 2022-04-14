@@ -23,3 +23,8 @@ import Route from '@ioc:Adonis/Core/Route'
 Route.get('/', async () => {
   return { hello: 'world' }
 })
+
+//--------------> Rutas relacionadas con los Usuarios <-------------------------------//
+
+import './RutasUsuarios/Authenticacion'
+import './RutasUsuarios/Roles'
