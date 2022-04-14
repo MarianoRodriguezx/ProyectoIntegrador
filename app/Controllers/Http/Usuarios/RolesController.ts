@@ -15,7 +15,7 @@ export default class RolesController {
         }
     }
 
-    public async store({ response, request }){
+    public async store({ response, request }: HttpContextContract){
         try{
 
             const payload = await request.validate(RolStoreValidator)
@@ -28,7 +28,7 @@ export default class RolesController {
         }
     }
 
-    public async destroy({ params, response }){
+    public async destroy({ params, response }: HttpContextContract){
         try{
             const rol = await Role.findOrFail(params.id)
 
@@ -40,7 +40,7 @@ export default class RolesController {
         }
     }
 
-    public async desactivar({ params, response }){
+    public async desactivar({ params, response }: HttpContextContract){
         try{
             const rol = await Role.findOrFail(params.id)
 
@@ -59,7 +59,7 @@ export default class RolesController {
         }
     }
 
-    public async activar({ params, response }){
+    public async activar({ params, response }: HttpContextContract){
         try{
             const rol = await Role.findOrFail(params.id)
 
