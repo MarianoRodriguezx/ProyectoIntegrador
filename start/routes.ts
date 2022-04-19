@@ -29,3 +29,4 @@ Route.get('/', async ({view}) => {
 import './RutasUsuarios/Authenticacion'
 import './RutasUsuarios/Roles'
 import './RutasArduinoPorts/RutasArduinoPorts'
+import './RutasUsuarios/RutasNFC'
