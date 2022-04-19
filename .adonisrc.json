@@ -23,7 +23,8 @@
     "@japa/preset-adonis/TestsProvider",
     "@adonisjs/lucid",
     "@adonisjs/auth",
-    "@adonisjs/view"
+    "@adonisjs/view",
+    "./providers/MongoProvider"
   ],
   "aceProviders": [
     "@adonisjs/repl"
