@@ -2,6 +2,15 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import ArduinoPorts from 'App/Models/ModelsMongoose/ArduinoPorts'
 
 export default class ArduinoPortsController {
+
+  /*
+  |----------------------------------------------------------|
+  |                                                          |
+  |  Metodo devuelve todos los datos de la tabla de los      |
+  |  puertos que estan en mongo.                             |
+  |----------------------------------------------------------|
+  */
+
   public async index({ response }: HttpContextContract) {
 
     try{
@@ -15,7 +24,13 @@ export default class ArduinoPortsController {
 
   }
 
-  //public async create({}: HttpContextContract) {}
+  /*
+  |----------------------------------------------------------|
+  |                                                          |
+  |  Metodo para ingresar datos en la tabla de los puertos   |
+  |  que estan en mongo en base a un arreglo que recibimos.  |
+  |----------------------------------------------------------|
+  */
 
   public async store({ response, request }: HttpContextContract) {
     try{
@@ -39,8 +54,6 @@ export default class ArduinoPortsController {
   }
 
   public async show({}: HttpContextContract) {}
-
-  //public async edit({}: HttpContextContract) {}
 
   public async update({}: HttpContextContract) {}
 

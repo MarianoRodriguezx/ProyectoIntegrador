@@ -4,6 +4,14 @@ import RolStoreValidator from 'App/Validators/RolStoreValidator'
 
 export default class RolesController {
 
+    /*
+    |----------------------------------------------------------|
+    |                                                          |
+    |  Metodo que regresa todos los roles en donde el valor    |
+    |  de sus status sea Verdadero                             |
+    |----------------------------------------------------------|
+    */
+
     public async index({ response }: HttpContextContract){
         try{
             const roles = await Role.query().where('status', 1)
@@ -14,6 +22,14 @@ export default class RolesController {
             response.internalServerError({message: "Ocurrio un Error"})
         }
     }
+
+    /*
+    |----------------------------------------------------------|
+    |                                                          |
+    |  Metodo que ingresa los roles en siempre y cuando el     |
+    |  validator este cumplido.                                |
+    |----------------------------------------------------------|
+    */
 
     public async store({ response, request }: HttpContextContract){
         try{
@@ -28,6 +44,13 @@ export default class RolesController {
         }
     }
 
+    /*
+    |----------------------------------------------------------|
+    |                                                          |
+    |  Metodo que elimina el role en donde coincida su id.     |
+    |----------------------------------------------------------|
+    */
+
     public async destroy({ params, response }: HttpContextContract){
         try{
             const rol = await Role.findOrFail(params.id)
@@ -39,6 +62,14 @@ export default class RolesController {
             response.notFound({message: "El dato no se encontro"})
         }
     }
+
+    /*
+    |----------------------------------------------------------|
+    |                                                          |
+    |  Metodo que desactiva el rol, cambiando su status a      |
+    |  falso siempre y cuando este activo.                     |
+    |----------------------------------------------------------|
+    */
 
     public async desactivar({ params, response }: HttpContextContract){
         try{
@@ -58,6 +89,14 @@ export default class RolesController {
             response.notFound({message: "El dato no se encontro"})
         }
     }
+
+    /*
+    |----------------------------------------------------------|
+    |                                                          |
+    |  Metodo que activa el rol, cambiando su status a         |
+    |  verdadero siempre y cuando este desactivado.            |
+    |----------------------------------------------------------|
+    */
 
     public async activar({ params, response }: HttpContextContract){
         try{

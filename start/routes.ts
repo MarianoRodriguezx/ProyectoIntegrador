@@ -28,5 +28,8 @@ Route.get('/', async ({view}) => {
 
 import './RutasUsuarios/Authenticacion'
 import './RutasUsuarios/Roles'
-import './RutasArduinoPorts/RutasArduinoPorts'
 import './RutasUsuarios/RutasNFC'
+
+//-------------> Rutas relacionadas con Puertos y Arduino <--------------------------//
+
+import './RutasArduinoPorts/RutasArduinoPorts'

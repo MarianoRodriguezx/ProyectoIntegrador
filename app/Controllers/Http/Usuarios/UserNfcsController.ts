@@ -2,6 +2,15 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import UserNfc from 'App/Models/UserNfc'
 
 export default class UserNfcsController {
+
+    /*
+    |----------------------------------------------------------|
+    |                                                          |
+    |  Metodo que regresa todas las relaciones de los          |
+    |  usuarios con sus tarjetas NFC                           |
+    |----------------------------------------------------------|
+    */
+
     public async index({ response }: HttpContextContract){
         try{
             const data = await UserNfc.all()
@@ -12,6 +21,14 @@ export default class UserNfcsController {
             response.internalServerError({message: "ocurrio un error"})
         }
     }
+
+    /*
+    |----------------------------------------------------------|
+    |                                                          |
+    |  Metodo que ingresa todas las relaciones de los          |
+    |  usuarios con sus tarjetas NFC                           |
+    |----------------------------------------------------------|
+    */
 
     public async store({ request, response }: HttpContextContract){
         try{
@@ -24,6 +41,15 @@ export default class UserNfcsController {
     }
 
     public async update({}: HttpContextContract){}
+
+    /*
+    |----------------------------------------------------------|
+    |                                                          |
+    |  Metodo que regresa un true o false en base a si tiene   |
+    |  permiso de ingreso, ademas regresa los datos de el      |
+    |  usuario en base a el NFC enviado                        |
+    |----------------------------------------------------------|
+    */
 
     public async VerifyPermisy({ request, response }: HttpContextContract){
         try{

@@ -3,6 +3,15 @@ import user from 'App/Models/user'
 import UserRegisterValidator from 'App/Validators/UserRegisterValidator'
 
 export default class AuthController {
+
+    /*
+    |----------------------------------------------------------|
+    |                                                          |
+    |  Metodo para el registro de los usuarios en base a       |
+    |  reglas de validacion.                                   |
+    |----------------------------------------------------------|
+    */
+
     public async registro({ request, response }: HttpContextContract){
         try{
             const payload = await request.validate(UserRegisterValidator)
@@ -14,6 +23,13 @@ export default class AuthController {
             response.badRequest({message: "Verifica los datos enviados"})
         }
     }
+
+    /*
+    |----------------------------------------------------------|
+    |                                                          |
+    |  Metodo para el logueo de los usuarios.                  |
+    |----------------------------------------------------------|
+    */
 
     public async login({ request, response, auth }: HttpContextContract){
         try{
@@ -29,6 +45,13 @@ export default class AuthController {
         }
     }
 
+    /*
+    |----------------------------------------------------------|
+    |                                                          |
+    |  Metodo para el logout de los usuarios.                  |
+    |----------------------------------------------------------|
+    */
+
     public async logout({ auth, response }: HttpContextContract){
         try{
 
@@ -41,6 +64,14 @@ export default class AuthController {
             response.internalServerError({message: "Ocurrio un error"})
         }
     }
+
+    /*
+    |----------------------------------------------------------|
+    |                                                          |
+    |  Metodo que regresa los datos de determinado usuario     |
+    |  en base a el token recibido.                            |
+    |----------------------------------------------------------|
+    */
 
     public async userData({ auth, response }: HttpContextContract){
         try{
