@@ -1,0 +1,52 @@
+<h4>--> Sensores <--</h4>
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr class="text-center">
+                            <th>Metodo</th>
+                            <th>Prefix</th>
+                            <th>Middleware</th>
+                            <th>Campos</th>
+                            <th>Reglas</th>
+                            <th>Response</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center">
+                            <td style="color:chartreuse">POST</td>
+                            <td>/api/v1/sensores</td>
+                            <td>SI</td>
+                            <td>
+                                <ul>
+                                    <li>1) nombre</li>
+                                    <li>2) pines []</li>
+                                    <li>3) efecto []</li>
+                                    <li>4) zona</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>1) -> Requerido </li>
+                                    <hr>
+                                    <li>2) -> Requerido</li>
+                                    <li>-> Arreglo Solamente</li>
+                                    <hr>
+                                    <li>3) -> Requerido</li>
+                                    <li>-> Arreglo Solamente</li>
+                                    <hr>
+                                    <li>4) -> Requerido</li>
+                                    <li>-> "Llave Foranea" de Zonas</li>
+                                </ul>
+                            </td>
+                            <td>Inserta el sensor en mongo</td>
+                        </tr>
+                        <tr class="text-center">
+                            <td style="color:aqua">GET</td>
+                            <td>/api/v1/sensores</td>
+                            <td>SI</td>
+                            <td>NO APLICA</td>
+                            <td>NO APLICA</td>
+                            <td>Regresa todos los sensores registrados</td>
+                        </tr>
+                    </tbody>
+                </table>
+<h6>NOTA: los campos pines y efectos estan configurados solo para recibir Arreglos</h6><br><hr><hr><br>

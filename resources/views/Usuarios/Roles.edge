@@ -1,0 +1,57 @@
+<br><hr><hr><br>
+<h4>--> Roles <--</h4>
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr class="text-center">
+                <th>Metodo</th>
+                <th>Prefix</th>
+                <th>Middleware</th>
+                <th>Campos</th>
+                <th>Reglas</th>
+                <th>Response</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="text-center">
+                <td style="color:aqua">GET</td>
+                <td>/api/v1/roles</td>
+                <td>SI</td>
+                <td>NO APLICA</td>
+                <td>NO APLICA</td>
+                <td>Regresa todos los datos ACTIVOS</td>
+            </tr>
+            <tr class="text-center">
+                <td style="color:chartreuse">POST</td>
+                <td>/api/v1/roles</td>
+                <td>SI</td>
+                <td>
+                    <ul>
+                        <li>1) rol</li>
+                        <li>2) valor</li>
+                        <li>3) status</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>1) -> Requerido</li>
+                        <li>-> Max: 100</li>
+                        <li>->Unique</li>
+                        <hr>
+                        <li>2) ->Requerido</li>
+                        <hr>
+                        <li>3) -> NO requerido</li>
+                    </ul>
+                </td>
+                <td>Inserta el rol en la tabla</td>
+            </tr>
+            <tr class="text-center">
+                <td style="color:red">DELETE</td>
+                <td>/api/v1/roles/:id</td>
+                <td>SI</td>
+                <td>NO APLICA</td>
+                <td>NO APLICA</td>
+                <td>Elimina definitivamente el dato</td>
+            </tr>
+        </tbody>
+    </table>
+<h6>NOTA: Automaticamente al montarte el servidor se corre un seeder que Inserta un rol SOPORTE de valor 1</h6><br><hr><hr>

@@ -4,12 +4,12 @@ import Zona from 'App/Models/ModelsMongoose/Zona'
 export default class ZonasController {
 
     /*
-  |----------------------------------------------------------|
-  |                                                          |
-  |  Metodo devuelve todos los datos de la tabla de las      |
-  |  zonas que están en mongo.                               |
-  |----------------------------------------------------------|
-  */
+    |----------------------------------------------------------|
+    |                                                          |
+    |  Metodo devuelve todos los datos de la tabla de las      |
+    |  zonas que están en mongo.                               |
+    |----------------------------------------------------------|
+    */
 
     public async index({ response }: HttpContextContract){
         try{
