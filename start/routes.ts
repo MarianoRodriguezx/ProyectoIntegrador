@@ -34,3 +34,8 @@ import './RutasUsuarios/RutasNFC'
 
 import './RutasArduinoPorts/RutasArduinoPorts'
 import './RutasArduinoPorts/RutasZonas'
+
+//-------------> Rutas relacionada a los datos Raspeberry <--------------------------//
+
+import './RaspeberryRoutes/RoutesSensores'
+import './RaspeberryRoutes/Configuracion'

@@ -1,151 +1,28 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Apis Disponibles</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
 
-<div class="container">
-    <div class="row">
-        <div class="col-12 text-center">
-            <h1>Direcciones de Rutas</h1>
-            <hr>
-                <h1>NOTA: ERORES DE ORTOGRAFIA NO SERAN CORREJIDOS, DEANTEMANO GRACIAS,</h1>
-            <hr><br>
+                <h1>Direcciones de Rutas</h1>
+                <!--<h1>NOTA: ERORES DE ORTOGRAFIA NO SERAN CORREJIDOS, DEANTEMANO GRACIAS,</h1>-->
 
-            <h4>Roles</h4>
-            <table class="table table-dark table-striped">
-                <thead>
-                    <tr class="text-center">
-                        <th>Metodo</th>
-                        <th>Prefix</th>
-                        <th>Middleware</th>
-                        <th>Campos</th>
-                        <th>Reglas</th>
-                        <th>Response</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="text-center">
-                        <td style="color:aqua">GET</td>
-                        <td>/api/v1/roles</td>
-                        <td>SI</td>
-                        <td>NO APLICA</td>
-                        <td>NO APLICA</td>
-                        <td>Regresa todos los datos ACTIVOS</td>
-                    </tr>
-                    <tr class="text-center">
-                        <td style="color:chartreuse">POST</td>
-                        <td>/api/v1/roles</td>
-                        <td>SI</td>
-                        <td>
-                            <ul>
-                                <li>1) rol</li>
-                                <li>2) valor</li>
-                                <li>3) status</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul>
-                                <li>1) -> Requerido</li>
-                                <li>-> Max: 100</li>
-                                <li>->Unique</li>
-                                <hr>
-                                <li>2) ->Requerido</li>
-                                <hr>
-                                <li>3) -> NO requerido</li>
-                            </ul>
-                        </td>
-                        <td>Inserta el rol en la tabla</td>
-                    </tr>
-                    <tr class="text-center">
-                        <td style="color:red">DELETE</td>
-                        <td>/api/v1/roles/:id</td>
-                        <td>SI</td>
-                        <td>NO APLICA</td>
-                        <td>NO APLICA</td>
-                        <td>Elimina definitivamente el dato</td>
-                    </tr>
-                </tbody>
-            </table>
-            <h6>NOTA: Automaticamente al montarte el servidor se corre un seeder que Inserta
-                un rol SOPORTE de valor 1</h6><br><hr><hr>
-
-
-
-
-
-                <br>
-            <h4>Autenticacion</h4>
-            <table class="table table-dark table-striped">
-                <thead>
-                    <tr class="text-center">
-                        <th>Metodo</th>
-                        <th>Prefix</th>
-                        <th>Middleware</th>
-                        <th>Campos</th>
-                        <th>Reglas</th>
-                        <th>Response</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="text-center">
-                        <td style="color:chartreuse">POST</td>
-                        <td>/auth/v1/register</td>
-                        <td>NO</td>
-                        <td>
-                            <ul>
-                                <li>1) username</li>
-                                <li>2) rol_id</li>
-                                <li>3) email</li>
-                                <li>4) password</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul>
-                                <li>1) -> Requerido </li>
-                                <li>Min: 3</li>
-                                <li>Max: 200</li>
-                                <hr>
-                                <li>2) -> Requerido</li>
-                                <hr>
-                                <li>3) -> Requerido</li>
-                                <li>-> email</li>
-                                <li>-> Unique</li>
-                                <hr>
-                                <li>4) -> Requerido</li>
-                            </ul>
-                        </td>
-                        <td>Inserta el usuario a la BD</td>
-                    </tr>
-                    <tr class="text-center">
-                        <td style="color:chartreuse">POST</td>
-                        <td>/auth/v1/login</td>
-                        <td>NO</td>
-                        <td>
-                            <ul>
-                                <li>1) email</li>
-                                <li>2) password</li>
-                            </ul>
-                        </td>
-                        <td>NO APLICA</td>
-                        <td>Regresa un mensaje y el token del usuario</td>
-                    </tr>
-                    <tr class="text-center">
-                        <td style="color:aqua">GET</td>
-                        <td>/auth/v1/logout/</td>
-                        <td>SI</td>
-                        <td>NO APLICA</td>
-                        <td>NO APLICA</td>
-                        <td>Cierra Sesion del Usuario</td>
-                    </tr>
-                    <tr class="text-center">
-                        <td style="color:aqua">GET</td>
-                        <td>/auth/v1/userData/</td>
-                        <td>SI</td>
-                        <td>NO APLICA</td>
-                        <td>NO APLICA</td>
-                        <td>Regresa los datos del usuario en base a token</td>
-                    </tr>
-                </tbody>
-            </table>
-            <h6>NOTA: -------</h6><br>
+                @include('Usuarios/Roles')
+                @include('Usuarios/Auth')
+                @include('Raspberry/Sensores')
+                @include('Raspberry/Puertos')
+                @include('Raspberry/Relaciones')
+                
+            </div>
         </div>
     </div>
-</div>
-
+</body>
+</html>

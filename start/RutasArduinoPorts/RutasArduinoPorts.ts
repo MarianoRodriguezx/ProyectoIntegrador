@@ -4,4 +4,4 @@ Route.group(()=>{
 
     Route.resource('arduinoPorts', 'ArduinoPortsController')
     
-}).namespace('App/Controllers/Http/ArduinoPorts').prefix('api/v1')
+}).namespace('App/Controllers/Http/ArduinoPorts').prefix('api/v1').middleware(['auth'])
