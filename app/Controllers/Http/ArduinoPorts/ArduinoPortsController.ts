@@ -55,7 +55,25 @@ export default class ArduinoPortsController {
 
   public async show({}: HttpContextContract) {}
 
-  public async update({}: HttpContextContract) {}
+  /*
+  |----------------------------------------------------------|
+  |                                                          |
+  |  Metodo que cambia el campo "Usado" a true para indicar  |
+  |  que este puerto esta ocupado.                           |
+  |----------------------------------------------------------|
+  */
+
+  public async update({ response, params }: HttpContextContract) {
+    try{
+      const puerto = params.id
+      
+      await ArduinoPorts.updateMany({board: puerto}, {$set: {Usado: true}})
+      
+    }
+    catch(error){
+      response.internalServerError({message: "Ocurrio un error, ten buen dia", error: error})
+    }
+  }
 
   public async destroy({}: HttpContextContract) {}
 }

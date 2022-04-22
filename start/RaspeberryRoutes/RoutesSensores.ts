@@ -4,4 +4,4 @@ Route.group(()=>{
 
     Route.resource('sensores', 'SensoresController')
 
-}).namespace('App/Controllers/Http/Raspeberry').prefix('api/v1')
+}).namespace('App/Controllers/Http/Raspeberry').prefix('api/v1').middleware(['auth'])
