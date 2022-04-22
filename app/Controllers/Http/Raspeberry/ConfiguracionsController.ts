@@ -52,12 +52,45 @@ export default class ConfiguracionsController {
         try{
             const data = request.all()
 
-            await Configuracion.create(data)
+            var data2: any = []
 
-            response.ok({message: "Se insertó correctamente"})
+            for (let i in data){
+                data2.push(data[i])
+            }
+
+            await Configuracion.create(data2)
+
+            response.ok({message: "Se insertó correctamente", data: data2})
         }
         catch(error){
             response.badRequest({message: "Ocurrió un error"})
+        }
+    }
+
+    public async show ({ params, response }: HttpContextContract)
+    {
+        try{
+            const data = await Configuracion.aggregate(
+            [
+                {
+                    $sort: {
+                        Fecha: -1
+                    }
+                }, 
+                {
+                    $limit: 10
+                },
+                {
+                    $match: {
+                        SensorID: params.id
+                    }
+                }
+            ])
+
+            response.ok({message: "consulta correcta", data: data})
+        }
+        catch(error){
+            response.internalServerError({message: "ocurrio un error", error})
         }
     }
 }
