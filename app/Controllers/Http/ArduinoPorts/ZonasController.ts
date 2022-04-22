@@ -3,10 +3,10 @@ import Zona from 'App/Models/ModelsMongoose/Zona'
 
 export default class ZonasController {
 
-    /*
+  /*
   |----------------------------------------------------------|
   |                                                          |
-  |  Metodo devuelve todos los datos de la tabla de las      |
+  |  Método devuelve todos los datos de la tabla de las      |
   |  zonas que están en mongo.                               |
   |----------------------------------------------------------|
   */
@@ -18,14 +18,14 @@ export default class ZonasController {
             response.ok({message: "consulta correcta", data: data})
         }
         catch(error){
-            response.internalServerError({message: "Ocurrio un error, ten buen dia", error: error})
+            response.internalServerError({message: "Ocurrió un error, ten buen dia", error: error})
         }
     }
 
     /*
     |----------------------------------------------------------|
     |                                                          |
-    |  Metodo que agrega una zona a Mongo.                     |
+    |  Método que agrega una zona a Mongo.                     |
     |----------------------------------------------------------|
     */
 
@@ -38,7 +38,7 @@ export default class ZonasController {
             response.ok({message: "Se agregó correctamente"})
         }
         catch(error){
-            response.internalServerError({message: "Ocurrio un Error"})
+            response.internalServerError({message: "Ocurrió un Error"})
         }
     }
 
