@@ -81,4 +81,23 @@ export default class AuthController {
             response.badRequest({message: "ocurrio un error"})
         }
     }
+
+    /*
+    |----------------------------------------------------------|
+    |                                                          |
+    |  Metodo que regresa los datos de todos los usuarios      |
+    |                                                          |
+    |----------------------------------------------------------|
+    */
+
+    public async usersData ({ response }: HttpContextContract){
+        try{
+            const users = await user.query().preload('Rol')
+
+            response.ok({message: "Consulta Correcta", data: users})
+        }
+        catch(error){
+            response.internalServerError({message: "Ocurrio un Error"})
+        }
+    }
 }

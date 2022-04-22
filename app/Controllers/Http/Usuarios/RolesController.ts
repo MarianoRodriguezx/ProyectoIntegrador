@@ -36,7 +36,7 @@ export default class RolesController {
 
             const payload = await request.validate(RolStoreValidator)
             await Role.create(payload)
-            response.created({message: "Se inserto el dato"})
+            response.created({message: "Se insertó el dato"})
 
         }
         catch(error){
@@ -59,7 +59,7 @@ export default class RolesController {
             response.ok({message: "El dato fue eliminado"})
         }
         catch(error){
-            response.notFound({message: "El dato no se encontro"})
+            response.notFound({message: "El dato no se encontró"})
         }
     }
 
@@ -86,7 +86,7 @@ export default class RolesController {
             }
         }
         catch(error){
-            response.notFound({message: "El dato no se encontro"})
+            response.notFound({message: "El dato no se encontró"})
         }
     }
 
@@ -113,7 +113,7 @@ export default class RolesController {
             }
         }
         catch(error){
-            response.notFound({message: "El dato no se encontro"})
+            response.notFound({message: "El dato no se encontró"})
         }
     }
 }

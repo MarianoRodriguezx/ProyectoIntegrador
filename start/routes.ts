@@ -33,3 +33,4 @@ import './RutasUsuarios/RutasNFC'
 //-------------> Rutas relacionadas con Puertos y Arduino <--------------------------//
 
 import './RutasArduinoPorts/RutasArduinoPorts'
+import './RutasArduinoPorts/RutasZonas'

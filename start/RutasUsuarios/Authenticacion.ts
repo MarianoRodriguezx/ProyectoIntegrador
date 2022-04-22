@@ -13,5 +13,6 @@ Route.group(()=>{
 
     Route.get('userData', 'AuthController.userData')
     Route.get('logout', 'AuthController.logout')
+    Route.get('users', 'AuthController.usersData')
 
 }).namespace('App/Controllers/Http/Usuarios').prefix('auth/v1').middleware(['auth'])
