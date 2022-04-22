@@ -47,5 +47,16 @@ export default class SensoresController {
             response.badRequest({message: "error en los datos enviados"})
         }
     }
+
+    public async destroy({ params, response }: HttpContextContract){
+        try{
+            
+            await Sensores.deleteOne({_id: params.id})
+            response.ok({message: "El dato fue eliminado"})
+        }
+        catch(error){
+            response.notFound({message: "El dato no se encontró"})
+        }
+    }
 }
 

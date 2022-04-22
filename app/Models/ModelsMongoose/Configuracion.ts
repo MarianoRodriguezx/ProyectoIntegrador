@@ -7,5 +7,8 @@ export default model('configuracion', new Schema(
         Unidad: String,
         Valor: Number,
         Fecha: Date
+    },
+    {
+        versionKey: false
     }
 ))
