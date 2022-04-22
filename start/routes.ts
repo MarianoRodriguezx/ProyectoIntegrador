@@ -39,3 +39,4 @@ import './RutasArduinoPorts/RutasZonas'
 
 import './RaspeberryRoutes/RoutesSensores'
 import './RaspeberryRoutes/Configuracion'
+import './RaspeberryRoutes/RoutesNFCS'

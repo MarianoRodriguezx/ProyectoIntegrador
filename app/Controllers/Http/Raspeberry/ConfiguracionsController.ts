@@ -3,6 +3,16 @@ import Configuracion from 'App/Models/ModelsMongoose/Configuracion'
 //import Configuracion from 'App/Models/ModelsMongoose/Configuracion'
 
 export default class ConfiguracionsController {
+
+    /*
+    |----------------------------------------------------------|
+    |                                                          |
+    |  Metodo devuelve 10 registros de los datos de la tabla   |
+    |   de los configuraciones que estan registrados en mongo. |
+    |                                                          |
+    |----------------------------------------------------------|
+    */
+
     public async index({ response }: HttpContextContract)
     {
         try{
@@ -24,6 +34,15 @@ export default class ConfiguracionsController {
             response.internalServerError({message: "ocurrio un error", error})
         }
     }
+
+    /*
+    |----------------------------------------------------------|
+    |                                                          |
+    |  Metodo devuelve 50 registros de los datos de la tabla   |
+    |   de los configuraciones que estan registrados en mongo. |
+    |                                                          |
+    |----------------------------------------------------------|
+    */
 
     public async indexExtendido({ response }: HttpContextContract)
     {
@@ -47,6 +66,14 @@ export default class ConfiguracionsController {
         }
     }
 
+    /*
+    |----------------------------------------------------------|
+    |                                                          |
+    |  Metodo que ingresa los registros de sensores en mongo   |
+    |                                                          |
+    |----------------------------------------------------------|
+    */
+
     public async store({ request, response }: HttpContextContract)
     {
         try{
@@ -66,6 +93,15 @@ export default class ConfiguracionsController {
             response.badRequest({message: "Ocurrió un error"})
         }
     }
+
+    /*
+    |----------------------------------------------------------|
+    |                                                          |
+    |  Metodo devuelve 10 registros de los datos de la tabla   |
+    |   de los configuraciones que estan registrados en mongo. |
+    |   en base a el ID enviado.                               |
+    |----------------------------------------------------------|
+    */
 
     public async show ({ params, response }: HttpContextContract)
     {

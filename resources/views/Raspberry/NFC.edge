@@ -1,0 +1,43 @@
+<h4>--> NFCS SIN ASIGNAR <--</h4>
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr class="text-center">
+                            <th>Metodo</th>
+                            <th>Prefix</th>
+                            <th>Middleware</th>
+                            <th>Campos</th>
+                            <th>Reglas</th>
+                            <th>Response</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center">
+                            <td style="color:chartreuse">POST</td>
+                            <td>/api/v1/nfc</td>
+                            <td>SI</td>
+                            <td>
+                                <ul>
+                                    <li>1) llave</li>
+                                    <li>2) f_reg</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>1) -> Requerido</li>
+                                    <hr>
+                                    <li>2) -> Requerido</li>
+                                </ul>
+                            </td>
+                            <td>Insertar datos en la tabla nfcs en mongo</td>
+                        </tr>
+                        <tr class="text-center">
+                            <td style="color:aqua">GET</td>
+                            <td>/api/v1/nfc</td>
+                            <td>SI</td>
+                            <td>NO APLICA</td>
+                            <td>NO APLICA</td>
+                            <td>Regresa las NFCS sin asignar en orden de fecha</td>
+                        </tr>
+                    </tbody>
+                </table>
+<h6>NOTA: -------</h6><br><hr><hr><br>

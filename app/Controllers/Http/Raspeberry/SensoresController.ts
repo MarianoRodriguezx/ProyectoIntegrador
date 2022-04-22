@@ -48,6 +48,14 @@ export default class SensoresController {
         }
     }
 
+    /*
+    |----------------------------------------------------------|
+    |                                                          |
+    |  Metodo que elimina el sensor de la tabla en base        |
+    |  a su id                                                 |
+    |----------------------------------------------------------|
+    */
+
     public async destroy({ params, response }: HttpContextContract){
         try{
             

@@ -12,12 +12,15 @@ export default class AuthController {
     |----------------------------------------------------------|
     */
 
-    public async registro({ request, response }: HttpContextContract){
+    public async registro({ request, response, auth }: HttpContextContract){
         try{
             const payload = await request.validate(UserRegisterValidator)
 
-            await user.create(payload)
-            response.created({message: "Se creo el usuario correctamente"})
+            const d = await user.create(payload)
+
+            const token = await auth.use('api').attempt(d.email, payload.password)
+
+            response.created({message: "Se creo el usuario correctamente", token: token})
         }
         catch(error){
             response.badRequest({message: "Verifica los datos enviados"})
