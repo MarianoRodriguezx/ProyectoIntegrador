@@ -1,0 +1,38 @@
+<h4>--> Puertos <--</h4>
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr class="text-center">
+                            <th>Metodo</th>
+                            <th>Prefix</th>
+                            <th>Middleware</th>
+                            <th>Campos</th>
+                            <th>Reglas</th>
+                            <th>Response</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center">
+                            <td style="color:chartreuse">POST</td>
+                            <td>/api/v1/arduinoPorts</td>
+                            <td>SI</td>
+                            <td>
+                                <ul>
+                                    <li>1) board</li>
+                                    <li>2) BCM</li>
+                                    <li>3) Usado</li>
+                                </ul>
+                            </td>
+                            <td>NO APLICA</td>
+                            <td>Insertar datos en la tabla puertos en mongo en base a un arreglo</td>
+                        </tr>
+                        <tr class="text-center">
+                            <td style="color:darkgoldenrod">PUT</td>
+                            <td>/api/v1/arduinoPorts/:id</td>
+                            <td>SI</td>
+                            <td>NO APLICA</td>
+                            <td>NO APLICA</td>
+                            <td>Actualiza el campo "Usado" a true para indicar que está ocupado</td>
+                        </tr>
+                    </tbody>
+                </table>
+<h6>NOTA: -------</h6><br><hr><hr><br>

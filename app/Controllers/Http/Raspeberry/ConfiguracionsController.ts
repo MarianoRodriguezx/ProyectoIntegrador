@@ -3,7 +3,7 @@ import Configuracion from 'App/Models/ModelsMongoose/Configuracion'
 //import Configuracion from 'App/Models/ModelsMongoose/Configuracion'
 
 export default class ConfiguracionsController {
-    public async index({ response, request }: HttpContextContract)
+    public async index({ response }: HttpContextContract)
     {
         try{
             const data = await Configuracion.aggregate(
@@ -25,7 +25,7 @@ export default class ConfiguracionsController {
         }
     }
 
-    public async indexExtendido({ response, request }: HttpContextContract)
+    public async indexExtendido({ response }: HttpContextContract)
     {
         try{
             const data = await Configuracion.aggregate(
@@ -54,10 +54,10 @@ export default class ConfiguracionsController {
 
             await Configuracion.create(data)
 
-            response.ok({message: "se inserto correctamente"})
+            response.ok({message: "Se insertó correctamente"})
         }
         catch(error){
-            response.badRequest({message: "ocurrio un error"})
+            response.badRequest({message: "Ocurrió un error"})
         }
     }
 }

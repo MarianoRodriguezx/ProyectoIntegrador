@@ -1,4 +1,4 @@
-<h4>--> Registros <--</h4>
+<h4>--> Zonas <--</h4>
                 <table class="table table-dark table-striped">
                     <thead>
                         <tr class="text-center">
@@ -13,35 +13,29 @@
                     <tbody>
                         <tr class="text-center">
                             <td style="color:chartreuse">POST</td>
-                            <td>/api/v1/configuracion</td>
+                            <td>/api/v1/zone</td>
                             <td>SI</td>
                             <td>
                                 <ul>
-                                    <li>1) SensorID</li>
-                                    <li>2) Sensor</li>
-                                    <li>3) Unidad</li>
-                                    <li>4) Valor</li>
-                                    <li>5) Fecha</li>
+                                    <li>1) nombre</li>
                                 </ul>
                             </td>
-                            <td>NO APLICA</td>
-                            <td>Inserta registros en Mongo</td>
+                            <td>
+                                <ul>
+                                    <li>1) -> Requerido </li>
+                                    <li>Min: 3</li>
+                                    <li>Max: 200</li>
+                                </ul>
+                            </td>
+                            <td>Inserta la zona a Mongo</td>
                         </tr>
                         <tr class="text-center">
                             <td style="color:aqua">GET</td>
-                            <td>/api/v1/configuracion</td>
+                            <td>/api/v1/zone</td>
                             <td>SI</td>
                             <td>NO APLICA</td>
                             <td>NO APLICA</td>
-                            <td>Regresa 10 registros ordenados por fecha</td>
-                        </tr>
-                        <tr class="text-center">
-                            <td style="color:aqua">GET</td>
-                            <td>/api/v1/indexExtendido</td>
-                            <td>SI</td>
-                            <td>NO APLICA</td>
-                            <td>NO APLICA</td>
-                            <td>Regresa 50 registros ordenados por fecha</td>
+                            <td>Regresa todos las zonas registradas</td>
                         </tr>
                     </tbody>
                 </table>

@@ -1,17 +1,9 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Zona from 'App/Models/ModelsMongoose/Zona'
+import ZonaValidator from 'App/Validators/ZonaValidator'
 
 export default class ZonasController {
 
-<<<<<<< HEAD
-  /*
-  |----------------------------------------------------------|
-  |                                                          |
-  |  Método devuelve todos los datos de la tabla de las      |
-  |  zonas que están en mongo.                               |
-  |----------------------------------------------------------|
-  */
-=======
     /*
     |----------------------------------------------------------|
     |                                                          |
@@ -19,7 +11,7 @@ export default class ZonasController {
     |  zonas que están en mongo.                               |
     |----------------------------------------------------------|
     */
->>>>>>> 0c87653469299cebb133ce981c1fa2f24b9c365b
+
 
     public async index({ response }: HttpContextContract){
         try{
@@ -41,9 +33,10 @@ export default class ZonasController {
 
     public async store({ response, request }: HttpContextContract){
         try{
-            const nombre = request.input('nombre')
+            //const data = await request.validate
+            const data = await request.validate(ZonaValidator)
 
-            await Zona.insertMany({name: nombre})
+            await Zona.insertMany({nombre: data.nombre})
 
             response.ok({message: "Se agregó correctamente"})
         }
