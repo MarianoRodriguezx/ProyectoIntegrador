@@ -59,4 +59,11 @@ export default class NfcsController {
             response.badRequest({message: "verifica tus datos"})
         }
     }
+
+    /*
+    |----------------------------------------------------------|
+    |                                                          |
+    |  Este comentario es una prueba de git pull               |
+    |----------------------------------------------------------|
+    */
 }
