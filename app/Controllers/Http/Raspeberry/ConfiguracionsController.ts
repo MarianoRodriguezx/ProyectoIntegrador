@@ -15,7 +15,7 @@ export default class ConfiguracionsController {
 
     public async index({ response }: HttpContextContract)
     {
-        try{
+        //try{
             const data = await Configuracion.aggregate(
             [
                 {
@@ -29,10 +29,10 @@ export default class ConfiguracionsController {
             ])
 
             response.ok({message: "consulta correcta", data: data})
-        }
+        /*}
         catch(error){
             response.internalServerError({message: "ocurrio un error", error})
-        }
+        }*/
     }
 
     /*
@@ -76,7 +76,7 @@ export default class ConfiguracionsController {
 
     public async store({ request, response }: HttpContextContract)
     {
-        try{
+        //try{
             const data = request.all()
 
             var data2: any = []
@@ -88,10 +88,10 @@ export default class ConfiguracionsController {
             await Configuracion.create(data2)
 
             response.ok({message: "Se insertó correctamente", data: data2})
-        }
+        /*}
         catch(error){
             response.badRequest({message: "Ocurrió un error"})
-        }
+        }*/
     }
 
     /*

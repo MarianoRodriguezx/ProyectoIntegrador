@@ -103,4 +103,21 @@ export default class AuthController {
             response.internalServerError({message: "Ocurrio un Error"})
         }
     }
+
+    public async update ({ request, response, params }){
+        try{
+            const User: any = await user.find(params.id)
+
+            User.username = request.input('username')
+            User.rol_id = request.input('rol_id')
+            User.email = request.input('email')
+
+            await User.save()
+
+            response.ok({message: "Usuario actualizado correctamente"})
+        }
+        catch(error){
+            response.internalServerError({message: "ocurrio un error"})
+        }
+    }
 }
