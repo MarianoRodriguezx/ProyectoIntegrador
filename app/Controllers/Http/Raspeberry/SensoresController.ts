@@ -66,5 +66,12 @@ export default class SensoresController {
             response.notFound({message: "El dato no se encontró"})
         }
     }
+
+        /*
+    |----------------------------------------------------------|
+    |                                                          |
+    |  Este comentario es una prueba de git pull               |
+    |----------------------------------------------------------|
+    */
 }
 
