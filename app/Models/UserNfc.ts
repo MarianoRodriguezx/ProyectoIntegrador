@@ -3,6 +3,9 @@ import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
 import user from './user'
 
 export default class UserNfc extends BaseModel {
+  static select(arg0: string) {
+      throw new Error('Method not implemented.')
+  }
   @column({ isPrimary: true })
   public id: number
 
