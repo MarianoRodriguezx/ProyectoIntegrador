@@ -5,7 +5,7 @@ export default model('configuracion', new Schema(
         SensorID: String,
         Sensor: String,
         Unidad: String,
-        Valor: Number,
+        Valor: String,
         Fecha: Date
     },
     {
