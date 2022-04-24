@@ -1,4 +1,5 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import nfcs from 'App/Models/ModelsMongoose/nfcs'
 import UserNfc from 'App/Models/UserNfc'
 
 export default class UserNfcsController {
@@ -32,11 +33,16 @@ export default class UserNfcsController {
 
     public async store({ request, response }: HttpContextContract){
         try{
+
+            const nfc = request.input("nfc")
+
+            await nfcs.deleteOne({llave: nfc})
+
             await UserNfc.create(request.all())
             response.ok({message: "Insertado correctamente"})
         }
         catch(error){
-            response.internalServerError({message: "ocurrio un error"})
+            response.badRequest({message: "ocurrio un error"})
         }
     }
 
