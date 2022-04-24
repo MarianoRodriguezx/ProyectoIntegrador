@@ -11,6 +11,7 @@ Route.group(()=>{
 
 Route.group(()=>{
 
+    Route.get('user', 'AuthController')
     Route.get('userData', 'AuthController.userData')
     Route.get('logout', 'AuthController.logout')
     Route.get('users', 'AuthController.usersData')

@@ -100,13 +100,21 @@ export default class AuthController {
             response.ok({message: "Consulta Correcta", data: users})
         }
         catch(error){
-            response.internalServerError({message: "Ocurrio un Error"})
+            response.internalServerError({message: "Ocurrió un Error"})
         }
     }
 
+    /*
+    |----------------------------------------------------------|
+    |                                                          |
+    |  Actualiza el permiso del usuario                        |
+    |                                                          |
+    |----------------------------------------------------------|
+    */
+
     public async update ({ request, response, params }){
         try{
-            const User: any = await user.find(params.id)
+            const User: any = await user.findOrFail(params.id)
 
             User.username = request.input('username')
             User.rol_id = request.input('rol_id')
@@ -117,7 +125,7 @@ export default class AuthController {
             response.ok({message: "Usuario actualizado correctamente"})
         }
         catch(error){
-            response.internalServerError({message: "ocurrio un error"})
+            response.badRequest({message: "No se encontró el usuario"})
         }
     }
 }

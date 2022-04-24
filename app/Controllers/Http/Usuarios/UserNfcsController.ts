@@ -40,7 +40,20 @@ export default class UserNfcsController {
         }
     }
 
-    public async update({}: HttpContextContract){}
+    public async update({ response, params }: HttpContextContract){
+        try{
+            const uNfc = await UserNfc.findOrFail(params.id)
+
+            uNfc.permiso = !uNfc.permiso
+
+            uNfc.save()
+             
+            response.ok({message: "Actualizado correctamente"})
+        }
+        catch(error){
+            response.internalServerError({message: "ocurrio un error"})
+        }
+    }
 
     /*
     |----------------------------------------------------------|
@@ -64,4 +77,5 @@ export default class UserNfcsController {
     }
 
     public async destroy({}: HttpContextContract){}
+
 }
