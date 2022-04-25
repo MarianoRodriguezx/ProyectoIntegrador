@@ -20,7 +20,6 @@ export default class SensoresController {
                 {
                   '$project': {
                     'nombre': 1, 
-                    
                     'zonaID': {
                       '$toObjectId': '$zona'
                     }
@@ -35,8 +34,7 @@ export default class SensoresController {
                 }, {
                   '$project': {
                     'nombre': 1, 
-                    'zonaSensor.name': 1,
-                    
+                    'zonaSensor.name': 1
                   }
                 }, {
                   '$replaceRoot': {
@@ -53,8 +51,7 @@ export default class SensoresController {
                 }, {
                   '$project': {
                     'name': 1, 
-                    'nombre': 1,
-                    
+                    'nombre': 1
                   }
                 }
               ])
