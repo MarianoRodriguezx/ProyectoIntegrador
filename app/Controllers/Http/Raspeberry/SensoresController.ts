@@ -31,10 +31,16 @@ export default class SensoresController {
                     'foreignField': '_id', 
                     'as': 'zonaSensor'
                   }
-                }, {
+                },
+                {
+                    '$addFields': {
+                        'zona': 'zonaSensor.nombre'
+                    }
+                },
+                 {
                   '$project': {
                     'nombre': 1, 
-                    'zonaSensor.name': 1
+                    'zona': 1
                   }
                 }, {
                   '$replaceRoot': {
@@ -50,7 +56,7 @@ export default class SensoresController {
                   }
                 }, {
                   '$project': {
-                    'name': 1, 
+                    'zona': 1, 
                     'nombre': 1
                   }
                 }
