@@ -129,6 +129,14 @@ export default class AuthController {
         }
     }
 
+    /* public async actualizarRol({ response, params }: HttpContextContract){
+        /* try{
+            const user1 = await user.findOrFail(params.id)
+
+            //user1.rol_id=
+        } 
+    } */
+
     public async destroy ({ params, response }: HttpContextContract){
         try{
             const user1 = await user.findOrFail(params.id)

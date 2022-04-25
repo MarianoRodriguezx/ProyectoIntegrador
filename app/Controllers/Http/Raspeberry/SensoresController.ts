@@ -54,7 +54,7 @@ export default class SensoresController {
                   }
                 }, {
                   '$project': {
-                    'name': 1, 
+                    'zonaSensor.name': 1, 
                     'nombre': 1,
                     'pines': 1,
                     'efecto': 1,
