@@ -22,6 +22,26 @@ export default class ConfiguracionsController {
                     $sort: {
                         Fecha: -1
                     }
+                }
+            ])
+
+            response.ok({message: "consulta correcta", data: data})
+        /*}
+        catch(error){
+            response.internalServerError({message: "ocurrio un error", error})
+        }*/
+    }
+
+
+    public async indexReducido({ response }: HttpContextContract)
+    {
+        //try{
+            const data = await Configuracion.aggregate(
+            [
+                {
+                    $sort: {
+                        Fecha: -1
+                    }
                 }, 
                 {
                     $limit: 10
@@ -34,7 +54,6 @@ export default class ConfiguracionsController {
             response.internalServerError({message: "ocurrio un error", error})
         }*/
     }
-
     /*
     |----------------------------------------------------------|
     |                                                          |
