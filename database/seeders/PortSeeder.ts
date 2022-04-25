@@ -5,6 +5,6 @@ import { datos } from '../../data/roles/pines'
 
 export default class PortSeederSeeder extends BaseSeeder {
   public async run () {
-    await ArduinoPorts.insertMany(datos)
+    await ArduinoPorts.insertMany(datos())
   }
 }
