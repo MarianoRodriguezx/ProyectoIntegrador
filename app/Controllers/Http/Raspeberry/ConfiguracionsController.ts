@@ -16,7 +16,7 @@ export default class ConfiguracionsController {
     public async index({ response }: HttpContextContract)
     {
         //try{
-            /* const data = await Configuracion.aggregate(
+            const data = await Configuracion.aggregate(
             [
                 {
                     $sort: {
@@ -27,48 +27,7 @@ export default class ConfiguracionsController {
                     $limit: 10
                 }
             ])
- */
 
-            const data = await Configuracion.aggregate([
-                {
-                  '$project': {
-                    'nombre': 1, 
-                    'zonaID': {
-                      '$toObjectId': '$zona'
-                    }
-                  }
-                }, {
-                  '$lookup': {
-                    'from': 'zones', 
-                    'localField': 'zonaID', 
-                    'foreignField': '_id', 
-                    'as': 'zonaSensor'
-                  }
-                }, {
-                  '$project': {
-                    'nombre': 1, 
-                    'zonaSensor.name': 1
-                  }
-                }, {
-                  '$replaceRoot': {
-                    'newRoot': {
-                      '$mergeObjects': [
-                        {
-                          '$arrayElemAt': [
-                            '$zonaSensor', 0
-                          ]
-                        }, '$$ROOT'
-                      ]
-                    }
-                  }
-                }, {
-                  '$project': {
-                    'name': 1, 
-                    'nombre': 1
-                  }
-                }
-              ])
-              
             response.ok({message: "consulta correcta", data: data})
         /*}
         catch(error){
@@ -155,7 +114,7 @@ export default class ConfiguracionsController {
                     }
                 }, 
                 {
-                    $limit: 10
+                    $limit: 50
                 },
                 {
                     $match: {
