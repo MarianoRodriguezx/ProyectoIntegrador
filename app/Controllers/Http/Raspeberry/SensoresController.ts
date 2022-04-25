@@ -69,6 +69,17 @@ export default class SensoresController {
         }
     }
 
+    public async indexP({ response }: HttpContextContract){
+        try{
+            const sensores = await Sensores.find()
+
+            response.ok({message: "consulta correcta", data: sensores})
+        }
+        catch(error){
+            response.internalServerError({message: "Ocurrio un error"})
+        }
+    }
+
     /*
     |----------------------------------------------------------|
     |                                                          |
