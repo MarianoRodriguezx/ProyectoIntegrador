@@ -32,17 +32,17 @@ export default class ZonasController {
     */
 
     public async store({ response, request }: HttpContextContract){
-        try{
+        //try{
             //const data = await request.validate
             const data = await request.validate(ZonaValidator)
 
             await Zona.insertMany({nombre: data.nombre})
 
             response.ok({message: "Se agregó correctamente"})
-        }
+        /* }
         catch(error){
             response.internalServerError({message: "Ocurrió un Error"})
-        }
+        } */
     }
 
     public async destroy({ }: HttpContextContract){}
