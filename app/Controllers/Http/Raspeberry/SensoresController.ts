@@ -17,50 +17,44 @@ export default class SensoresController {
         try{
 
             const data =  await Sensores.aggregate([
-                {
-                  '$project': {
-                    'nombre': 1, 
-                    'pines': 1,
-                    'efecto': 1,
-                    'zonaID': {
-                      '$toObjectId': '$zona'
-                    }
-                  }
-                }, {
-                  '$lookup': {
-                    'from': 'zones', 
-                    'localField': 'zonaID', 
-                    'foreignField': '_id', 
-                    'as': 'zonaSensor'
-                  }
-                }, {
-                  '$project': {
-                    'nombre': 1, 
-                    'zonaSensor.name': 1,
-                    'pines': 1,
-                    'efecto': 1,
-                  }
-                }, {
-                  '$replaceRoot': {
-                    'newRoot': {
-                      '$mergeObjects': [
-                        {
-                          '$arrayElemAt': [
-                            '$zonaSensor', 0
-                          ]
-                        }, '$$ROOT'
-                      ]
-                    }
-                  }
-                }, {
-                  '$project': {
-                    'name': 1, 
-                    'nombre': 1,
-                    'pines': 1,
-                    'efecto': 1,
-                  }
-                }
-              ])
+        {
+    '$project': {
+      'nombre': 1, 
+      'zonaID': {
+        '$toObjectId': '$zona'
+      }
+    }
+  }, {
+    '$lookup': {
+      'from': 'zones', 
+      'localField': 'zonaID', 
+      'foreignField': '_id', 
+      'as': 'zonaSensor'
+    }
+  }, {
+    '$project': {
+      'nombre': 1, 
+      'zonaSensor.name': 1
+    }
+  }, {
+    '$replaceRoot': {
+      'newRoot': {
+        '$mergeObjects': [
+          {
+            '$arrayElemAt': [
+              '$zonaSensor', 0
+            ]
+          }, '$$ROOT'
+        ]
+      }
+    }
+  }, {
+    '$project': {
+      'name': 1, 
+      'nombre': 1
+    }
+  }
+])
 
             response.ok({message: "consulta correcta", data: data})
         }
