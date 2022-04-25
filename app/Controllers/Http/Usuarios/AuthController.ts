@@ -128,4 +128,17 @@ export default class AuthController {
             response.badRequest({message: "No se encontró el usuario"})
         }
     }
+
+    public async destroy ({ params, response }: HttpContextContract){
+        try{
+            const user1 = await user.findOrFail(params.id)
+
+            user1.delete()
+
+            response.ok({message: "Se elimino correctamente"})
+        }
+        catch(error){
+            response.badRequest({message: "No se encontró el usuario"})
+        }
+    }
 }
