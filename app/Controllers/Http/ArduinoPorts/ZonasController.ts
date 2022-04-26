@@ -48,7 +48,7 @@ export default class ZonasController {
     public async destroy({ params, response }: HttpContextContract){
         try{
             const zona = await Zona.deleteOne({_id: params.id})
-            response.ok({message: "Se elimino correctamente"})
+            response.ok({message: "Se elimino correctamente", zona})
         }
         catch(error){
             response.internalServerError({message: "Ocurrió un Error"})
