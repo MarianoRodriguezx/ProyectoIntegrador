@@ -20,7 +20,7 @@ export default class AuthController {
 
             const token = await auth.use('api').attempt(d.email, payload.password)
 
-            response.created({message: "Se creo el usuario correctamente", token: token})
+            response.created({message: "Se creo el usuario correctamente", token: token, dataUser: auth.user})
         }
         catch(error){
             response.badRequest({message: "Verifica los datos enviados"})
@@ -40,7 +40,7 @@ export default class AuthController {
             const password = request.input('password')
 
             const token = await auth.use('api').attempt(email, password)
-            response.ok({message: "Se inicio correctamente", token: token})
+            response.ok({message: "Se inicio correctamente", token: token, dataUser: auth.user})
 
         }
         catch(error){
@@ -136,7 +136,7 @@ export default class AuthController {
             user1.rol_id=request.input('rol_id')
 
             user1.save()
-            
+
             response.ok({message: "modificado correctamente"})
         } 
         catch(error){
