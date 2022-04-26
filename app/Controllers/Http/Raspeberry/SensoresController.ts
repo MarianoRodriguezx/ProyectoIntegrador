@@ -19,7 +19,7 @@ export default class SensoresController {
             const data =  await Sensores.aggregate([
                 {
                     '$addFields': {
-                        'nom': 'nombre'
+                        'nom': '$nombre'
                     }
                 },
                 {
