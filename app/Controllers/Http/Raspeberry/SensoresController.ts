@@ -18,8 +18,13 @@ export default class SensoresController {
 
             const data =  await Sensores.aggregate([
                 {
+                    '$addFields': {
+                        'nom': 'nombre'
+                    }
+                },
+                {
                   '$project': {
-                    'nombre': 1, 
+                    'nom': 1, 
                     'zonaID': {
                       '$toObjectId': '$zona'
                     }
@@ -31,16 +36,10 @@ export default class SensoresController {
                     'foreignField': '_id', 
                     'as': 'zonaSensor'
                   }
-                },
-                {
-                    '$addFields': {
-                        'zona': 'zonaSensor.nombre'
-                    }
-                },
-                 {
+                }, {
                   '$project': {
-                    'nombre': 1, 
-                    'zona': 1
+                    'nom': 1, 
+                    'zonaSensor.nombre': 1
                   }
                 }, {
                   '$replaceRoot': {
@@ -56,8 +55,8 @@ export default class SensoresController {
                   }
                 }, {
                   '$project': {
-                    'zona': 1, 
-                    'nombre': 1
+                    'nombre': 1, 
+                    'nom': 1
                   }
                 }
               ])
