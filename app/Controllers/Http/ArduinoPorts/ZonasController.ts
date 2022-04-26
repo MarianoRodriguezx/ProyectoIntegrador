@@ -54,4 +54,4 @@ export default class ZonasController {
             response.internalServerError({message: "Ocurrió un Error"})
         }
     }
-}
+} 

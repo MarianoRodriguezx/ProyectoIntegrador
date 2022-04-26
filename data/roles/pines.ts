@@ -3,12 +3,12 @@ export function datos(){
         {
             "board": 3,
             "BCM": "GPIO 2 (SDA)",
-            "Usado": false
+            "Usado": true
         },
         {
             "board": 5,
             "BCM": "GPIO 3 (SCL)",
-            "Usado": false
+            "Usado": true
         },
         {
             "board": 7,
@@ -18,12 +18,12 @@ export function datos(){
         {
             "board": 8,
             "BCM": "GPIO 14 (TDX)",
-            "Usado": false
+            "Usado": true
         },
         {
             "board": 10,
             "BCM": "GPIO 15 (RXD)",
-            "Usado": false
+            "Usado": true
         },
         {
             "board": 11,
@@ -83,7 +83,7 @@ export function datos(){
         {
             "board": 26,
             "BCM": "GPIO 7 (CE1)",
-            "Usado": false
+            "Usado": true
         },
         {
             "board": 27,
