@@ -129,13 +129,20 @@ export default class AuthController {
         }
     }
 
-    /* public async actualizarRol({ response, params }: HttpContextContract){
-        /* try{
+    public async actualizarRol({ response, params, request }: HttpContextContract){
+        try{
             const user1 = await user.findOrFail(params.id)
 
-            //user1.rol_id=
+            user1.rol_id=request.input('rol_id')
+
+            user1.save()
+            
+            response.ok({message: "modificado correctamente"})
         } 
-    } */
+        catch(error){
+            response.badRequest({message: "No se encontró el usuario"})
+        }
+    } 
 
     public async destroy ({ params, response }: HttpContextContract){
         try{

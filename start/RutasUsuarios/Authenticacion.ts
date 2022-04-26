@@ -12,6 +12,9 @@ Route.group(()=>{
 Route.group(()=>{
 
     //Route.resource('users', )
+
+    
+    Route.put('actualizarRol', 'AuthController.actualizarRol')
     Route.resource('user', 'AuthController')
     Route.get('userData', 'AuthController.userData')
     Route.get('logout', 'AuthController.logout')
