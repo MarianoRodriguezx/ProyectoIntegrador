@@ -3,6 +3,7 @@ import Hash from '@ioc:Adonis/Core/Hash'
 import { column, beforeSave, BaseModel, belongsTo, BelongsTo, hasMany, HasMany } from '@ioc:Adonis/Lucid/Orm'
 import Role from './Role'
 import UserNfc from './UserNfc'
+import AccesoNfc from './AccesoNfc'
 
 export default class user extends BaseModel {
   @column({ isPrimary: true })
@@ -46,4 +47,10 @@ export default class user extends BaseModel {
     localKey: 'id'
   })
   public User: HasMany<typeof UserNfc>
+
+  @hasMany(()=> AccesoNfc, {
+    foreignKey: 'usuario_id',
+    localKey: 'id'
+  })
+  public User2: HasMany<typeof AccesoNfc>
 }

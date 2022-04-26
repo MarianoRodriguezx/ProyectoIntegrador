@@ -63,11 +63,11 @@ export default class ArduinoPortsController {
   |----------------------------------------------------------|
   */
 
-  public async update({ response, params }: HttpContextContract) {
+  public async update({ response, params, request }: HttpContextContract) {
     try{
       const puerto = params.id
       
-      await ArduinoPorts.updateMany({board: puerto}, {$set: {Usado: true}})
+      await ArduinoPorts.updateMany({board: puerto}, {$set: {Usado: request.input('Usado')}})
       
     }
     catch(error){
