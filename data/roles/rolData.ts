@@ -1,6 +1,8 @@
 
 export function datos(){
-    return [{
+    return [
+
+    {
         "rol":"Soporte",
         "valor": 1,
         "status": true
@@ -9,5 +11,7 @@ export function datos(){
         "rol":"guest",
         "valor": 2,
         "status": true
-    }]
+    }
+    
+]
 }
